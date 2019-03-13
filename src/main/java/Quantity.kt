@@ -6,6 +6,7 @@ data class Quantity(val x: Double, val u: String) {
     fun rMul(r: Double) =  Quantity(x * r, u)
     fun rDiv(r: Double) =  Quantity(x / r, u)
 }
+
 fun check(a: Quantity, b: Quantity):List<Any> {
     val z1 = a.uSum(b)
     val z2 = a.uMin(b)
@@ -14,6 +15,7 @@ fun check(a: Quantity, b: Quantity):List<Any> {
     val z5 = a.uDiv(b)
     return listOf(z1,z2,z3,z4,z5)
 }
+
 fun main(args: Array<String>){
     println()
 }
