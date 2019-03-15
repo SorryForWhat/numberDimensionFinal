@@ -3,10 +3,16 @@ package src
 import org.junit.Test
 import org.junit.Assert.*
 
-class test {
+class Tests {
     @Test
-    fun check() {
-    assertEquals(listOf(""), check(Quantity(10.0, "метры"),
-        Quantity(14.0, "метры")))
-}
+    fun simpleParser() {
+//        assertEquals("70.0 метр" , simpleParser("28.0 метр * 2.5"))
+//        assertEquals("2.0 метр" , simpleParser("28.0 метр / 14.0 "))
+//        assertEquals("42.0 метр" , simpleParser("28.0 метр + 14.0 метр"))
+//        assertEquals("14.0 метр" , simpleParser("28.0 метр - 14.0 метр"))
+        assertEquals("2.0" , simpleParser("28.0 метр / 14.0 метр"))
+        assertEquals("2.0" , simpleParser("28.0 метр & 14.0 метр"))
+
+    }
+
 }
