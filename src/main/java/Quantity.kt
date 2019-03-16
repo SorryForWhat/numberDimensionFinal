@@ -57,25 +57,3 @@ data class Quantity(val x: Double, val u: String) { //Операции с пла
         } else throw Exception("Invalid Expression Syntax")
     return throw Exception("Invalid Expression Syntax")
     }
-
-
-
-fun check(a: Quantity, b: Quantity):List<Any> {
-    val z1 = a.uSum(b)
-    val z2 = a.uMin(b)
-    val z3 = a.rDiv(3.0)
-    val z4 = a.rMul(3.0)
-    val z5 = a.uDiv(b)
-    return listOf(z1,z2,z3,z4,z5)
-}
-
-
-
-fun main(args: Array<String>){
-//    fun maid (args: Array<String>) {
-//        if (!args.toString().matches(Regex("""\d+\.\d+\s+[a-zA-z]+\s+[\+\-\*\/\и]\s+\d+\.\d+\s+[a-zA-z]*"""))) println( "123")
-//        for (i in args.toString().split(" "))
-//            println(args)
-//    }
-    return
-}
