@@ -11,16 +11,18 @@ class Tests {
     }
     @Test
     fun multiParser() {
-        assertEquals("1.0" , multiParser("5.0 метр", "5.0 метр", "/"))
-        assertEquals("14.4 метр" , multiParser("12.3 метр", "2.1 метр", "+"))
-        assertEquals("2.5 метр" , multiParser("16.5 метр", "14.0 метр", "-"))
-        assertEquals("25.0 метр^2" , multiParser("5.0 метр", "5.0 метр", "*"))
-        assertEquals("16.5 метр > 16.4 метр" , multiParser("16.5 метр", "16.4 метр", "&"))
+        assertEquals("2.44" , multiParser(readQuantity("12.2 метр"), readQuantity("5.0 метр"), "/"))
+        assertEquals("25.0 метр^2" , multiParser(readQuantity("5.0 метр"), readQuantity("5.0 метр"), "*"))
+        assertEquals("12.0 метр" , multiParser(readQuantity("5.3 метр"), readQuantity("6.7 метр"), "+"))
+        assertEquals("13.5 метр" , multiParser(readQuantity("19.0 метр"), readQuantity("5.5 метр"), "-"))
+        assertEquals("5.0 метр = 5.0 метр" , multiParser(readQuantity("5.0 метр"), readQuantity("5.0 метр"), "&"))
+        assertEquals("5.0 метр < 5.1 метр" , multiParser(readQuantity("5.0 метр"), readQuantity("5.1 метр"), "&"))
+        assertEquals("5.1 метр > 4.9 метр" , multiParser(readQuantity("5.1 метр"), readQuantity("4.9 метр"), "&"))
     }
     @Test
     fun simpleParser() {
-        assertEquals("1.0 метр" , simpleParser("5.0 метр", "5.0", "/"))
-        assertEquals("24.6 метр" , simpleParser("12.3 метр", "2.0", "*"))
+        assertEquals("1.0 метр" , simpleParser(readQuantity("5.0 метр"), "5.0", "/"))
+        assertEquals("24.6 метр" , simpleParser(readQuantity("12.3 метр"), "2.0", "*"))
     }
 
 }

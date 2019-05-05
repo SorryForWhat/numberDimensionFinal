@@ -27,15 +27,14 @@ data class Quantity(val x: Double, val u: String) { //Операции с пла
         return Quantity(res[0].toDouble(), res[1])
     }
 
-    fun simpleParser(unitQ1: String, unitQ2: String, operation: String): String {
-        val unit1 = readQuantity(unitQ1)
-            if (operation == "/") return unit1.rDiv(unitQ2.toDouble()).convertToString()
-            if (operation == "*") return unit1.rMul(unitQ2.toDouble()).convertToString()
+    fun simpleParser(unit1: Quantity, unit2: String, operation: String): String {
+
+            if (operation == "/") return unit1.rDiv(unit2.toDouble()).convertToString()
+            if (operation == "*") return unit1.rMul(unit2.toDouble()).convertToString()
         else throw Exception("Invalid Expression Syntax")
         }
-    fun multiParser(unitQ1: String, unitQ2: String, operation: String): String {
-        val unit1 = readQuantity(unitQ1)
-        val unit2 = readQuantity(unitQ2)
+
+    fun multiParser(unit1: Quantity, unit2: Quantity, operation: String): String {
         if (operation == "/") return unit1.uDiv(unit2).toString()
         if (operation == "+") return unit1.uSum(unit2).convertToString()
         if (operation == "-") return unit1.uMin(unit2).convertToString()
