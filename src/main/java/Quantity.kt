@@ -12,12 +12,12 @@ package src
 
 data class Quantity(val x: Double, val u: String) { //Операции с плавающей точкой
 
-    fun uSum(q: Quantity) = if (u == q.u) Quantity(x + q.x, u) else throw Exception("Unit Mismatch") //Суммирование
-    fun uMin(q: Quantity) = if (u == q.u) Quantity(x - q.x, u) else throw Exception("Unit Mismatch") //Вычитание
+    fun uSum(q: Quantity) = if (u == q.u) Quantity(x + q.x, u) else throw Exception("Unit Mismatch") // Суммирование
+    fun uMin(q: Quantity) = if (u == q.u) Quantity(x - q.x, u) else throw Exception("Unit Mismatch") // Вычитание
+    fun uMul(q: Quantity) = if (u == q.u) Quantity(x * q.x, "$u^2") else throw Exception("Unit Mismatch") // Умножение
     fun uDiv(q: Quantity) = if (u == q.u) x / q.x else throw Exception("Unit Mismatch") // Деление двух величин
     fun rMul(r: Double) = Quantity(x * r, u) // Деление на число
     fun rDiv(r: Double) = Quantity(x / r, u) // Умножение на число
-    fun uMul(q: Quantity) = if (u == q.u) Quantity(x * q.x, u) else throw Exception("Unit Mismatch") //Вычитание
     fun convertToString():String { return "$x $u"} //Преобразование в строку
 
 
@@ -45,6 +45,6 @@ data class Quantity(val x: Double, val u: String) { //Операции с пла
             if (unit1.x == unit2.x) return "$comparedUnit1 = $comparedUnit2"
             if (unit1.x < unit2.x) return "$comparedUnit1 < $comparedUnit2"
         } else throw Exception("Invalid Expression Syntax")
-        if (operation == "*") return unit1.uMul(unit2).convertToString() + "^2"
+        if (operation == "*") return unit1.uMul(unit2).convertToString()
         else throw Exception("Invalid Expression Syntax")
     }
