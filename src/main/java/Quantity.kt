@@ -19,14 +19,14 @@ data class Quantity(val x: Double, val u: String)  { //Операции с пл�
     operator fun div(q: Quantity) = Quantity(x / q.x, "$u/${q.u}") //Деление двух величин
     operator fun times(r: Double) = Quantity(x * r, u).convertToString() // Деление на число
     operator fun div(r: Double) = Quantity(x / r, u).convertToString() // Умножение на число
-    companion object {fun readQuantity(s: String): Quantity {
+    companion object {
+        fun readQuantity(s: String): Quantity {
             val res = s.split(" ")
             if (res.size != 2) throw Exception("Invalid Quantity Syntax")
             return Quantity(res[0].toDouble(), res[1])
         }
-        }
     }
-
+}
 
     fun simpleParser(unit1: Quantity, unit2: Double, operation: String): String {
         if (operation == "/") return unit1/unit2
